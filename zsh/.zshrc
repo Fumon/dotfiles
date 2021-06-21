@@ -10,8 +10,8 @@ fi
 setopt share_history hist_ignore_space extended_history hist_reduce_blanks
 setopt hist_ignore_all_dups hist_ignore_dups hist_expire_dups_first hist_find_no_dups hist_save_no_dups
 HISTFILE=${HOME}/.config/zsh/histfile
-HISTSIZE=40000
-SAVEHIST=35000
+HISTSIZE=4000
+SAVEHIST=3500
 setopt interactive_comments # For hashtags in history
 
 # --- Keymap
@@ -24,9 +24,14 @@ setopt hist_verify # Don't execute immediately on completion
 zmodload -i zsh/complist
 setopt auto_menu auto_list
 zstyle ':completion:*' show-ambiguity 'true'
-#zstyle ':completion:*' menu select
+zstyle ':completion:*' show-completer 'true'
+zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' separate-sections 'true'
+zstyle ':completion:*' use-cache on
+#zstyle ':completion:*' file-list 'true' # ls -l format (need colors)
+#zstyle ':completion:*' gain-privileges 'true' # For sudo things
 zstyle ':completion:*:descriptions' format '--- %d ---'
 
 autoload -Uz compinit
@@ -40,6 +45,15 @@ fi
 # --- Misc
 setopt autocd extendedglob notify
 unsetopt beep
+
+# > cdr (recent dirs with completion)
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+# > tetris
+autoload -Uz tetris
+zle -N tetris
+bindkey '^Xt' tetris
 
 # --- Path and aliases
 source ${HOME}/.config/broot/launcher/bash/br
