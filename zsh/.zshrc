@@ -23,7 +23,8 @@ setopt hist_verify # Don't execute immediately on completion
 # > Complist
 zmodload -i zsh/complist
 setopt auto_menu auto_list
-zstyle ':completion:*' menu select
+zstyle ':completion:*' show-ambiguity 'true'
+#zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format '--- %d ---'
@@ -38,7 +39,7 @@ fi
 
 # --- Misc
 setopt autocd extendedglob notify
-
+unsetopt beep
 
 # --- Path and aliases
 source ${HOME}/.config/broot/launcher/bash/br
