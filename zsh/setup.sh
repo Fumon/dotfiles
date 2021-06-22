@@ -9,3 +9,7 @@ ln -s ${dt}/zsh/.zshrc ${HOME}/.zshrc
 if [ -e ${HOME}/.config/zsh ]; then
     mkdir -p ${HOME}/.config/zsh
 fi
+
+if [ -e ${HOME}/.cache/zsh ]; then
+    mkdir -p ${HOME}/.cache/zsh
+fi

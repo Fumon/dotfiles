@@ -9,7 +9,7 @@ fi
 # --- History
 setopt share_history hist_ignore_space extended_history hist_reduce_blanks
 setopt hist_ignore_all_dups hist_ignore_dups hist_expire_dups_first hist_find_no_dups hist_save_no_dups
-HISTFILE=${HOME}/.config/zsh/histfile
+HISTFILE=${HOME}/.cache/zsh/histfile
 HISTSIZE=4000
 SAVEHIST=3500
 setopt interactive_comments # For hashtags in history
