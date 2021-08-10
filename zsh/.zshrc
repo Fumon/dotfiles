@@ -56,4 +56,8 @@ zle -N tetris
 bindkey '^Xt' tetris
 
 # --- Path and aliases
+alias ls='ls -G'
+alias ll='ls -lG'
 source ${HOME}/.config/broot/launcher/bash/br
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
