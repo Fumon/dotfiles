@@ -57,7 +57,7 @@ bindkey '^Xt' tetris
 
 # --- Golang
 export GOPATH=${HOME}/go
-path+=("${GOPATH}/bin")
+PATH+=("${GOPATH}/bin")
 
 # --- Ruby
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
@@ -70,6 +70,9 @@ source ${HOME}/.config/broot/launcher/bash/br
 alias ls='ls -G'
 alias ll='ls -lG'
 alias gs='git status'`
+
+PATH+=("${HOME}/.bin")
+
 export PATH
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
