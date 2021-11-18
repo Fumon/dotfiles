@@ -55,9 +55,25 @@ autoload -Uz tetris
 zle -N tetris
 bindkey '^Xt' tetris
 
+# --- Golang
+export GOPATH=${HOME}/go
+path+=("${GOPATH}/bin")
+
+# --- Ruby
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+# --- broot
+source ${HOME}/.config/broot/launcher/bash/br
+
+
 # --- Path and aliases
 alias ls='ls -G'
 alias ll='ls -lG'
-source ${HOME}/.config/broot/launcher/bash/br
+alias gs='git status'`
+export PATH
 
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/jadebilkey/.kube/config:/Users/jadebilkey/.kube/config.shopify.cloudplatform
+if [ -e /Users/jadebilkey/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jadebilkey/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)

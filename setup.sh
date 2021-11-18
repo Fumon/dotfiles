@@ -10,3 +10,8 @@ git submodule update --init --recursive
 
 # Shell config
 . zsh/setup.sh
+
+# Windowmgmt
+# TODO: Gate on interactive mac
+
+#. windowmgt/macos/setup.sh
