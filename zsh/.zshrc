@@ -57,7 +57,7 @@ bindkey '^Xt' tetris
 
 # --- Golang
 export GOPATH=${HOME}/go
-PATH+=("${GOPATH}/bin")
+path+=("${GOPATH}/bin")
 
 # --- Ruby
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
@@ -69,9 +69,9 @@ source ${HOME}/.config/broot/launcher/bash/br
 # --- Path and aliases
 alias ls='ls -G'
 alias ll='ls -lG'
-alias gs='git status'`
+alias gs='git status'
 
-PATH+=("${HOME}/.bin")
+path+=("${HOME}/.bin")
 
 export PATH
 
